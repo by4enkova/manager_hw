@@ -86,5 +86,44 @@ class MovieManagerTest {
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    void shouldNotShowAll(){
+        MovieManager manager = new MovieManager(5);
+
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
+        manager.add(tenth);
+
+        Movie[] actual = manager.getLast();
+        Movie[] expected = {tenth, ninth, eighth, seventh, sixth};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldShowTenMovies() {
+
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
+        manager.add(tenth);
+
+        Movie[] actual = manager.getLast();
+        Movie[] expected = {tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        assertArrayEquals(expected, actual);
+    }
+
 
 }
